@@ -379,3 +379,4 @@ xcuserdata/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,jetbrains+all,xcode,visualstudiocode,python,virtualenv
 
+/.docker
