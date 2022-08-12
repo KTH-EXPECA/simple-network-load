@@ -23,9 +23,9 @@ for _ in $(seq 1 "${IPERF_MAX_RETRIES}"); do
     -p "${IPERF_SERVER_PORT}" \
     "${IPERF_TRANSPORT_FLAG}" \
     -b "${IPERF_BITRATE}" \
-    -n "${IPERF_BYTES}" \
+    -t "${IPERF_TIME}" \
     --connect-timeout "${IPERF_CONN_TIMEOUT}" \
-    | tee "${IPERF_LOGFILE}";
+    | tee -a "${IPERF_LOGFILE}";
   if [ $? -ne 1 ]; then
     break;
   fi
