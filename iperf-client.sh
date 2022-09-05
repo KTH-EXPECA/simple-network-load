@@ -11,6 +11,7 @@ IPERF_SERVER_PORT=${IPERF_SERVER_PORT:-5201};
 IPERF_USE_UDP=${IPERF_USE_UDP:-true}
 IPERF_LOG_HEADER=${IPERF_LOG_HEADER:-""}
 IPERF_SATURATE=${IPERF_SATURATE:-false}
+IPERF_STREAMS=${IPERF_STREAMS:-1}
 
 IPERF_TRANSPORT_FLAG=$("${IPERF_USE_UDP}" && echo "-u" || echo "")
 
@@ -48,6 +49,7 @@ else
       "${IPERF_TRANSPORT_FLAG}" \
       -b "${IPERF_BITRATE}" \
       -t "${IPERF_TIME}" \
+      --parallel "${IPERF_STREAMS}" \
       --connect-timeout "${IPERF_CONN_TIMEOUT}" \
       | tee -a "${IPERF_LOGFILE}";
     if [ $? -ne 1 ]; then
